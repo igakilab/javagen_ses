@@ -1,0 +1,138 @@
+system:
+与えられたコードが解答になるように課題を生成してください．
+必ず与えられたフォーマットに従って出力してください．
+必須要素が存在する場合は，その要素を使用するよう仕様の説明で明示してください．
+また，以下のことは行ってはいけません．
+
+* クラス名やファイル名，課題番号の変更
+* 解答例にないクラスの作成
+* 複数の課題の作成
+* 出力が一定のコードに対する複数の実行例の生成
+
+
+---以下のフォーマットで出力---
+
+## 課題*-*　/*題材*/
+/*課題X-YのXはWorkXYのXを10進数で表したもの、YはWorkXYのYを10進数で表したもの*/
+
+- /*課題の説明*/
+- 下記仕様と実行例に従って`Work**`クラスを持つ`Work**.java`を作成しましょう。
+
+### 仕様
+
+次のクラスを作成します。
+
+1. Work**クラス（Work**.java）
+
+/*クラスの仕様説明*/
+
+(
+2.**クラス (**.java)
+
+/*クラスの仕様説明*/
+
+)
+
+### 実行例
+
+- 文字列や数字の横に <- とあるところはユーザーによる入力を表しています。<-は入力する必要はありません。
+
+```sh
+$ java Work**　/*コマンドライン引数*/
+/*上記の実行行を記述後、実行例の入出力を記述*/
+/*入力を表す行は行末に""<-""を記述(例: ""10 20 <-"")*/
+
+
+$ java Work** /*コマンドライン引数*/
+/*上記の実行行を記述後、実行例の入出力を記述*/
+/*入力を表す行は行末に""<-""を記述(例: ""10 20 <-"")*/
+
+$
+```
+
+user:
+題材: 文字列の比較
+必須要素: {'String.equals', 'java.util.Scanner.nextLine', 'java.util.Scanner.close'}
+
+public class Work25 {
+  public static void main(String[] args) {
+    java.util.Scanner scanner = new java.util.Scanner(System.in);
+
+    // System.out.println(""1番目の文字列を入力してください。"");
+    String str1 = scanner.nextLine();
+
+    // System.out.print(""2番目の文字列を入力してください。"");
+    String str2 = scanner.nextLine();
+
+    // 文字列比較
+    if (str1.equals(str2)) {
+      System.out.println(""1番目と2番目の文字列は等しいです。"");
+    } else {
+      System.out.println(""1番目と2番目の文字列は違います。"");
+    }
+    scanner.close();
+  }
+}
+
+assistant:
+## 課題2-5 文字列の比較
+
+- 標準入力から文字列を2回読んで、同じ文字列かどうかを判別してみましょう。
+- 下記仕様と実行例に従って`Work25`クラスを持つ`Work25.java`を作成しましょう。
+
+### 仕様
+
+次のクラスを作成します。
+
+1. Work25クラス（Work25.java）
+
+- String型の変数input1, input2 を宣言します。
+- input1, input2 には標準入力から読み込んだ文字列がそれぞれ入ります。
+- input1, input2 が同じ文字列かどうかを判別し、等しいか、等しくないか（違うか）を実行例のように出力します。
+
+### 実行例
+
+- 文字列や数字の横に <- とあるところはユーザーによる入力を表しています。<-は入力する必要はありません。
+
+```sh
+$ java Work25
+hogehoge <-
+hogehoge <-
+1番目と2番目の文字列は等しいです。
+
+$ java Work25
+javaは簡単 <-
+javaは楽しい <-
+1番目と2番目の文字列は違います。
+
+$
+```
+
+user:
+題材: 基本データ型や文字列型を含むArrayListの要素の追加方法と取得方法
+必須要素: {'java.util.ArrayList.add', '(java.util.Scanner.next|java.util.Scanner.nextInt)', 'java.util.ArrayList.get', 'java.util.Scanner.close'}
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class WorkB1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<String> stringList = new ArrayList<>();
+
+        // 3つの文字列をユーザーから入力させる
+        for (int i = 0; i < 3; i++) {
+            System.out.println((i + 1) + ""番目の文字列を入力してください:"");
+            String input = scanner.next();
+            stringList.add(input); // 入力された文字列をリストに追加
+        }
+
+        // 入力された文字列を表示する
+        System.out.println(""入力された文字列は以下の通りです:"");
+        for (int i = 0; i < 3; i++) {
+            System.out.println(stringList.get(i)); // リストから文字列を取得して表示
+        }
+
+        scanner.close();
+    }
+}

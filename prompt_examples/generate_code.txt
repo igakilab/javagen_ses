@@ -1,0 +1,63 @@
+system:
+次の条件を満たすJavaプログラムを出力してください。
+
+user:
+題材: 文字列の比較
+メインクラス: Work25
+クラス数: 1
+必ず使用するメソッドもしくは制御文: {'String.equals', 'java.util.Scanner.nextLine', 'java.util.Scanner.close'}
+使用可能なメソッドもしくは制御文: {'System.out.printf', 'java.util.Scanner.nextLine', 'System.out.print', 'System.out.println', 'java.util.Scanner.close', 'java.util.Scanner.next', 'Integer.parseInt', 'String.equals', 'if'}
+必ず使用するメソッドもしくは制御文について、'|'で区切られている場合はどれか1つを使用していればよいものとします。
+
+assistant:
+public class Work25 {
+  public static void main(String[] args) {
+    java.util.Scanner scanner = new java.util.Scanner(System.in);
+
+    // System.out.println(""1番目の文字列を入力してください。"");
+    String str1 = scanner.nextLine();
+
+    // System.out.print(""2番目の文字列を入力してください。"");
+    String str2 = scanner.nextLine();
+
+    // 文字列比較
+    if (str1.equals(str2)) {
+      System.out.println(""1番目と2番目の文字列は等しいです。"");
+    } else {
+      System.out.println(""1番目と2番目の文字列は違います。"");
+    }
+    scanner.close();
+  }
+}
+
+user:
+題材: 基本データ型や文字列型を含むArrayListの要素の追加方法と取得方法
+シナリオ: ユーザーから3つの文字列を入力させ、それらをリストに追加して表示する。
+メインクラス: WorkB1
+クラス数: 1
+必ず使用するメソッドもしくは制御文: {'java.util.ArrayList.add', '(java.util.Scanner.next|java.util.Scanner.nextInt)', 'java.util.ArrayList.get', 'java.util.Scanner.close'}
+使用可能なメソッドもしくは制御文: {'java.util.ArrayList.get', 'System.out.printf', 'java.util.ArrayList.add', 'if', 'String.format', 'while', 'String.equals', 'java.util.Arrays.fill', 'String.length', 'switch', 'System.out.print', 'System.out.println', 'java.util.Arrays.sort', 'Math.max', 'java.util.Scanner.close', 'Integer.parseInt', 'for', 'java.util.Scanner.nextLine', 'array', 'java.util.Scanner.next', 'java.util.Scanner.nextInt'}
+必ず使用するメソッドもしくは制御文について、'|'で区切られている場合はどれか1つを使用していればよいものとします。
+import java.util.Scanner;
+
+public class WorkB1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<String> stringList = new ArrayList<>();
+
+        // 3つの文字列をユーザーから入力させる
+        for (int i = 0; i < 3; i++) {
+            System.out.println((i + 1) + ""番目の文字列を入力してください:"");
+            String input = scanner.next();
+            stringList.add(input); // 入力された文字列をリストに追加
+        }
+
+        // 入力された文字列を表示する
+        System.out.println(""入力された文字列は以下の通りです:"");
+        for (int i = 0; i < 3; i++) {
+            System.out.println(stringList.get(i)); // リストから文字列を取得して表示
+        }
+
+        scanner.close();
+    }
+}
